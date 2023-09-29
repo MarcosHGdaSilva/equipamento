@@ -73,10 +73,10 @@ public class EquipamentoRepository implements Repository<Equipamento, Long> {
 
             if (resultSet.isBeforeFirst()) {
                 while (resultSet.next()) {
-                    Long id = resultSet.getLong( "ID_CLIENTE" );
-                    String nome = resultSet.getString( "NM_CLIENTE" );
-                    /*String descrição = resultSet.getString( "DESC_EQUIPAMENTO" );*/
-                    equipamentos.add( new Equipamento(id, nome, null) );
+                    Long id = resultSet.getLong( "ID_EQUIPAMENTO" );
+                    String nome = resultSet.getString( "EQUIPAMENTO" );
+                    String descrição = resultSet.getString( "DESC_EQUIPAMENTO" );
+                    equipamentos.add( new Equipamento(id, nome, descrição) );
                 }
             }
 
@@ -106,8 +106,8 @@ public class EquipamentoRepository implements Repository<Equipamento, Long> {
                 while (resultSet.next()) {
                     equipamento = new Equipamento(
                             resultSet.getLong( "ID_EQUIPAMENTO" ),
-                            resultSet.getString( "NM_EQUIPAMENTO" ), null
-                            /*resultSet.getString("DS_EQUIPAMENTO")*/
+                            resultSet.getString( "NM_EQUIPAMENTO" ),
+                            resultSet.getString("DS_EQUIPAMENTO")
                     );
                 }
             } else {
@@ -124,6 +124,7 @@ public class EquipamentoRepository implements Repository<Equipamento, Long> {
 
     @Override
     public Equipamento update(Equipamento repository) {
+
         return null;
     }
 
