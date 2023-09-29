@@ -22,16 +22,16 @@ public class EquipamentoResource implements Resource<Equipamento, Long>{
 
     @GET
     public Response findAll() {
-        List<Equipamento> equipamentos = new ArrayList<>();
-        equipamentos = repo.findAll();
-        return Response.ok(equipamentos).build();
+        List<Equipamento> equipamentos = repo.findAll();
+        return Response.status(Response.Status.OK).entity(equipamentos).build();
     }
     @GET
     @Path("/{id}")
+    @Override
     public Response findById(@PathParam("id") Long id) {
         Equipamento equipamento = repo.findById(id);
         if (Objects.isNull(equipamento)) return Response.status(404).build();
-        return Response.ok(equipamento).build();
+        return Response.status(Response.Status.OK).entity(equipamento).build();
     }
 
     @PUT

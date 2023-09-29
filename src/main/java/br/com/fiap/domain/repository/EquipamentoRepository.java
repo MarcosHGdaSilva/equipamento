@@ -124,7 +124,6 @@ public class EquipamentoRepository implements Repository<Equipamento, Long> {
 
     @Override
     public Equipamento update(Equipamento repository) {
-
         return null;
     }
 
