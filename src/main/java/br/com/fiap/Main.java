@@ -1,5 +1,6 @@
 package br.com.fiap;
 
+import br.com.fiap.infra.ConnectionFactory;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
@@ -17,7 +18,7 @@ public class Main {
         // Configure ConnectionFactory
         // Configure os pacotes em que temos Recursos da API REST
         final ResourceConfig rc = new ResourceConfig()
-               // .register( ConnectionFactory.build() )
+                .register( ConnectionFactory.build() )
                 .packages( "br.com.fiap.domain.resource" );
         return GrizzlyHttpServerFactory.createHttpServer( URI.create( BASE_URI ), rc );
     }
